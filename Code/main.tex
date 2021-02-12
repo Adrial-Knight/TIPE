@@ -1,0 +1,527 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}
+\usetheme{Warsaw}
+
+\usepackage{graphicx}
+\usepackage{textcomp} 
+\hypersetup{breaklinks=true}
+\title[Stockage d'énergie]{Stocker de manière écologique, quantitative et durable de l’énergie}
+
+\author{Pierre Minier}
+\date{2020}
+
+\begin{document}
+	\begin{frame}[plain]
+	\titlepage
+	\end{frame}
+
+
+
+
+	\section{Introduction}
+	
+	\begin{frame}[plain]
+		\frametitle{Besoin de stocker de l'énergie}
+		Objectif français : 32\% de renouvelable en 2030 (loi LTECV)
+		\begin{figure}
+			\includegraphics[scale = 0.35]{eolienne.jpg}
+			\caption{Parc d'éolienne offshore}
+		\end{figure}
+Risques : pénuries et instabilité sur le réseau
+	\end{frame}
+    
+    \begin{frame}[plain]{Plan}
+        \begin{enumerate}
+            \item Présentation d'un système de stockage
+            \item Modélisation du système
+            \item Rendement, Puissance et temps de décharge
+            \item Expériences sur une maquette
+            \item Application à une échelle réelle
+        \end{enumerate}
+    \end{frame}
+
+    \section{Présentation d'un système de stockage}
+    \subsection{Les stockages mécaniques}
+	\begin{frame}
+		\frametitle{Présentation d'un système de stockage}
+		\framesubtitle{Les stockages mécaniques}
+	\begin{columns}
+		
+		\begin{column}{5.5cm}
+			\begin{figure}
+				\includegraphics[scale=0.18]{STEP.png}
+				\caption{STEP}
+			\end{figure}
+		\end{column}
+		
+		\begin{column}{6cm}
+			\begin{itemize}
+				\item Utilisation d'une énergie potentielle
+				\newline
+				\item Premier moyen de stockage stationnaire mondial
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	\end{frame}
+
+    \subsection{Lien avec l'océan}
+	\begin{frame}[plain]
+		\frametitle{Présentation d'un système de stockage}
+		\framesubtitle{Lien avec l'océan}
+		\begin{itemize}
+			\item Stocker en hauteur $\Rightarrow$ stocker en profondeur
+			\item \text{Utilisation de bouées cylindriques}
+		\end{itemize}
+	\[\]
+		\begin{figure}
+			\includegraphics[scale=1]{principe.png}
+			\caption{schéma de principe}
+		\end{figure}
+	\end{frame}
+
+	\subsection{Présentation d'une maquette}
+	\begin{frame}[plain]
+	\frametitle{Présentation d'un système de stockage}
+	\framesubtitle{Présentation d'une maquette}
+		\begin{figure}
+			\includegraphics[scale = 0.72]{Modele.png}
+			\caption{schéma de la maquette construite}
+		\end{figure}
+	\end{frame}
+
+
+	\begin{frame}[plain]
+	\frametitle{Présentation d'un système de stockage}
+	\framesubtitle{Présentation d'une maquette}
+	\begin{columns}
+	\begin{column}{5 cm}
+        \begin{figure}
+            \includegraphics[scale = 0.31]{2.jpeg}
+            \caption{Vue de biais}
+        \end{figure}
+    \end{column}
+    \begin{column}{5cm}
+        \begin{figure}
+            \includegraphics[scale = 0.15]{3.jpeg}
+            \caption{Vue de face}
+        \end{figure}
+    \end{column}
+    \end{columns}
+	\end{frame}
+
+
+
+
+	\section{Modélisation du système}
+	\subsection{Bilan de forces}
+	\begin{frame}
+	\frametitle{Modélisation du système}
+	\framesubtitle{Bilan de force}
+		\begin{columns}
+			\begin{column}{5.5cm}
+				\begin{figure}
+				\includegraphics[scale=0.4]{{BilanDeForce.png}}
+				\caption{Les forces appliquées}
+				\end{figure}
+			\end{column}
+		
+			\begin{column}{7.5cm}
+				\begin{enumerate}
+					\item Le Poids : $\vec{P} = m.\vec{g}$
+					\item La poussée d'Archimède : $\vec{\pi} = - \rho_{eau}.V.\vec{g}$
+					\item Une force de frottement : $\vec{F}_f = - k.\vec{v_i}^\alpha$
+					\item Une force de traction (descente) : $\vec{F}_{tr}$
+					\item Une force de tension (remonté) : $\vec{F}_{Te}$
+				\end{enumerate}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	\subsection{La poussée d'Archimède}
+	\begin{frame}[plain]
+	\frametitle{La poussée d'Archimède}
+	\frametitle{Modélisation du système}
+	\framesubtitle{La poussée d'Archimède}
+	 	
+	 	\begin{columns}
+	 	\begin{column}{5.5cm}
+	 	\begin{figure}
+		 	\includegraphics[scale=0.55]{VolumeImmerge.png}
+	 		\caption{Le volume immergé}
+	 	\end{figure}
+ 		\end{column}
+ 	
+ 		\begin{column}{8.5 cm}
+ 			\begin{center}
+ 			$\boxed{\vec{\pi} = - \rho_{eau}.V(x).\vec{g}}$
+ 			\end{center}
+ 			\[\]
+ 			$
+ 			V(x) = \left\{
+ 			\begin{array}{r c l}
+ 			\pi.r_{ba}^2.h_{ba}&&0\leq x \leq n-h_{ba}\\
+ 			\pi.r_{ba}^2.(n-x)&&n-h_{ba}\leq x \leq n
+ 			\end{array}
+ 			\right.
+ 			$
+ 			
+ 		\end{column}
+ 	\end{columns}
+	\end{frame}
+
+	\subsection{La force de frottement}
+	\begin{frame}[plain]
+		\frametitle{Modélisation du système}
+		\framesubtitle{La force de frottement}
+		\begin{center}
+			 $\boxed{Re = \frac{||\vec{v}_{ba}||.r_{ba}.\rho_{eau}}{\eta_{eau}}}$
+		\end{center}
+	\[\]
+		\begin{figure}
+			\includegraphics[scale=0.7]{RegimeReynolds.png}
+			\caption{Modèles de frottement selon le nombre de Reynolds}
+		\end{figure}
+	
+	\end{frame}
+
+	\begin{frame}[plain]
+	\frametitle{Modélisation du système}
+	\framesubtitle{La force de frottement}
+		\begin{figure}
+			$\boxed{k = \frac{C_D}{2}.\rho_{eau}.||\vec{v}_{ba}||^2.\pi.r_{ba}^2}$
+		\[\]
+		\includegraphics[scale=1]{abaque.png}
+		\caption{Coefficient de traîné ($C_D$)}
+		\end{figure}
+	\end{frame}
+
+
+
+
+
+	\section{Rendement, Puissance et temps de décharge}
+		\subsection{Caractériser une méthode de stockage}
+	\begin{frame}
+	\frametitle{Rendement, Puissance et temps de décharge}
+	\framesubtitle{Caractériser une méthode de stockage}
+		\begin{columns}
+			\begin{column}{7cm}
+				\begin{figure}
+					\includegraphics[scale=0.1]{Conclu1.png}
+					\caption{Classification des moyens de stockage}
+				\end{figure}
+			\end{column}
+			
+			\begin{column}{5cm}
+				\begin{itemize}
+					\item Le rendement énergétique
+					\item Le temps de décharge/charge
+					\item La puissance récupérée
+				\end{itemize}
+			\end{column}
+			\end{columns}
+	\end{frame}
+
+
+	\subsection{A vitesse constante}
+	\begin{frame}[plain]
+	\frametitle{Rendement énergétique}
+	\framesubtitle{A vitesse constante : la descente}
+		\begin{columns}
+			\begin{column}{4cm}
+				\includegraphics[scale=0.6]{BDFDescente.png}
+			\end{column}
+		
+			\begin{column}{6cm}
+				\[
+				\begin{array}{r c l}
+				PFD \Rightarrow ||\vec{F}_{tr}|| &=& ||\vec{\pi}|| + ||\vec{F}_f|| - ||\vec{P}||\\\\
+				E_{consomm \acute{e} e} &\stackrel{d \acute {e}f}=& \int_{0}^{t_f}\vec{F}_{tr}.\vec{v}_ddt
+				\end{array}
+				\]
+				\[\]
+				$\boxed{E_{consomm \acute{e} e} = ||\vec{v}_d||.\int_{0}^{t_f}||\vec{F}_{tr}||dt}$
+
+			\end{column}
+		\end{columns}
+	\end{frame}
+
+
+
+	\begin{frame}[plain]
+	\frametitle{Rendement énergétique}
+	\framesubtitle{A vitesse constante : la remontée}
+	\begin{columns}
+		\begin{column}{4cm}
+			\includegraphics[scale=0.6]{BDFRemonte.png}
+		\end{column}
+		
+		\begin{column}{6cm}
+			\[
+			\begin{array}{r c l}
+			PFD \Rightarrow ||\vec{F}_{te}|| &=& ||\vec{\pi}|| - ||\vec{F}_f|| - ||\vec{P}||\\\\
+			E_{r \acute{e} cup \acute{e} r \acute{e} e} &\stackrel{d \acute{e} f}=& \int_{0}^{t_f}\vec{F}_{te}.\vec{v}_rdt
+			\end{array}
+			\]
+			\[\]
+			$\boxed{E_{r \acute{e} cup \acute{e} r \acute{e} e} = -||\vec{v}_r||.\int_{0}^{t_f}||\vec{F}_{te}||dt}$
+		
+	\end{column}
+	\end{columns}
+	\end{frame}
+	\begin{frame}[plain]
+	\frametitle{Rendement énergétique}
+	\framesubtitle{A vitesse constante : évaluation du rendement}
+		\begin{figure}
+			\includegraphics[scale=0.38]{17.png}
+			\caption{carte de fréquentation}
+		\end{figure}
+	\end{frame}
+	
+	\subsection{Étude du régime libre}
+	\begin{frame}
+	\frametitle{Rendement, Puissance et temps de décharge}
+	\framesubtitle{Étude du régime libre}
+		\begin{center}
+			$PFD \Rightarrow\boxed{m_{ba}.\ddot{x}_{ba} = \rho_{eau}.V(x_{ba}).g - m_{ba}.g - k(\dot{x}_{ba}).\dot{x}_{ba}^\alpha}$
+		\end{center}	
+		
+		
+		\[\]Plan d'étude :
+		\begin{enumerate}
+			\item Condition imposée par un régime libre - permanent
+			\item Résolution "à la main" dans un cas simplifié
+			\item Résolution par une méthode numérique
+		\end{enumerate}
+	\end{frame}
+
+	
+	\begin{frame}[plain]
+	\frametitle{Étude du régime libre}
+	\framesubtitle{Condition imposée par un régime libre - permanent}
+
+		\begin{center}
+            $\boxed{k(v_{\infty}).v_{\infty}^\alpha = g.(\rho_{eau}.\pi.r_{ba}^2.h_{ba} - m_{ba})} \quad \Rightarrow \textit{Densité du ballast} < 1$
+		\end{center}
+		
+			\begin{figure}
+			\includegraphics[scale=0.8]{5.png}
+			\caption{Vitesse "infinie" selon la masse}
+			\end{figure}
+	\end{frame}
+
+	
+
+	\begin{frame}[plain]
+	\frametitle{Étude du régime libre}
+	\framesubtitle{Résolution de l'équation différentielle dans un cas simplifié}
+
+	\begin{center}
+	$\boxed{m_{ba}.\ddot{x}_{ba} + k.\dot{x}_{ba}^\alpha = (\rho_{eau}.\pi.r_{ba}^2.h_{ba} - m_{ba}).g} \quad \alpha \neq 1$
+	\end{center}
+	\quad\quad\quad\quad\quad\quad Linéarisation en posant : $\dot{x}_{ba} = Y^{\frac{1}{1 - \alpha}}$
+	
+	\begin{figure}
+		\includegraphics[scale=0.72]{6.png}
+		\caption{Solution théorique avec k constant}
+	\end{figure}
+	
+	\end{frame}
+
+
+	\begin{frame}[plain]
+	\frametitle{Étude du régime libre}
+	\framesubtitle{Résolution par une méthode numérique}
+		\begin{center}
+		$\boxed{m_{ba}.\ddot{x}_{ba} + k(\dot{x}_{ba}).\dot{x}_{ba}^\alpha - \rho_{eau}.V(x_{ba}).g = - m_{ba}.g}$
+		\end{center}
+		\begin{figure}
+		\includegraphics[scale=0.7]{12.png}
+		\caption{Vitesse de remontée en régime libre}
+		\end{figure}
+	\end{frame}
+    
+    \subsection{Conclusion de la partie théorique}
+    \begin{frame}
+    \frametitle{Rendement, Puissance et temps de décharge}
+    \framesubtitle{Conclusion de la partie théorique}
+            Modèle de la vitesse:
+            \begin{enumerate}
+                \item Vitesse "créneau"
+                \item Vitesse du régime permanent
+            \end{enumerate}
+            \[\]
+        	Conséquences :
+        	\begin{enumerate}
+        	    \item Accès au rendement énergétique
+        	    \item Formules simples valides:
+            \begin{center}
+                \begin{itemize}
+                      \item ${T_{d \acute{e} charge}} = \frac{Profondeur}{v_{ba}}$
+                      \item $P_{d \acute{e} livr \acute{e} e} = \frac{E_{r \acute{e} cup \acute{e} r \acute{e} e }}{T_{d \acute{e} charge}}$
+                    \end{itemize}
+                  \end{center}
+        	\end{enumerate}
+
+        
+    \end{frame}
+
+	\section{Expériences sur une maquette}
+	\subsection{Logiciel utilisé}
+    \begin{frame}
+    \frametitle{Expérience sur la maquette}
+    \framesubtitle{Logiciel utilisé}
+    \begin{figure}
+        \centering
+        \includegraphics[scale = 0.25]{tracker.png}
+        \caption{Utilisation du logiciel tracker}
+    \end{figure}
+        
+    \end{frame}
+    
+    \subsection{Expérience 1}
+	\begin{frame}[plain]
+	\frametitle{Expérience sur la maquette}
+	\framesubtitle{Utilisation d'une vitesse angulaire}
+	\begin{figure}
+	    \centering
+	    \includegraphics[scale = 0.7]{16.png}
+	    \caption{Résultat de l'expérience 1}
+	\end{figure}
+	    
+	\end{frame}
+	
+	\subsection{Expérience 2}
+	\begin{frame}[plain]
+	\frametitle{Expérience sur la maquette}
+	\framesubtitle{Expérience 2 : sans la structure annexe}
+		\begin{figure}
+		    \centering
+		    \includegraphics[scale = 1]{Experience2.png}
+		    \caption{Modification de la maquette}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}[plain]
+	\frametitle{Expérience sur la maquette}
+	\framesubtitle{Expérience 2 : sans la structure annexe}
+	\begin{figure}
+	    \centering
+	    \includegraphics[scale = 0.65]{14.png}
+	    \caption{Résultat de l'expérience 2}
+	\end{figure}
+	\end{frame}
+	
+	\subsection{Expérience 3}
+	\begin{frame}[plain]
+	\frametitle{Expérience sur la maquette}
+	\framesubtitle{Expérience 3 : s'affranchir des effets de bords}
+	\begin{columns}
+	    \begin{column}{6cm}
+        	\begin{figure}
+        	    \centering
+        	    \includegraphics[scale = 0.05]{piscine.jpg}
+        	    \caption{Expérience dans une piscine}
+        	\end{figure}
+        \end{column}
+        \begin{column}{6cm}
+        	\begin{figure}
+        	    \centering
+        	    \includegraphics[scale = 0.31]{ballast.png}
+        	    \caption{Le ballast muni de "l'antenne"}
+        	\end{figure}        
+        \end{column}
+    \end{columns}
+	\end{frame}	
+	
+	
+	\begin{frame}[plain]
+	\frametitle{Expérience sur la maquette}
+	\framesubtitle{Expérience 3 : s'affranchir des effets de bords}
+	\begin{figure}
+	    \centering
+	    \includegraphics[scale = 0.65]{15.png}
+	    \caption{Résultat de l'expérience 3}
+	\end{figure}
+	\end{frame}
+	
+    \begin{frame}[plain]
+	\frametitle{Expérience sur la maquette}
+	\framesubtitle{Expérience 3 : s'affranchir des effets de bords}
+	\begin{figure}
+	    \centering
+	    \includegraphics[scale = 0.75]{Figure_3.png}
+	    \caption{Ajout des incertitudes}
+	\end{figure}
+	\end{frame}
+
+
+	\section{Application à une échelle réelle}
+	\subsection{Démarche}
+	\begin{frame}
+	    \frametitle{Application à une échelle réelle}
+	    \framesubtitle{Démarche effectuée}
+	    
+	    \begin{figure}
+	        \centering
+	        \includegraphics{Raisonnement.png}
+	        \caption{Raisonnement}
+	    \end{figure}
+	\end{frame}
+	\subsection{Puissance et temps de décharge}
+	\begin{frame}[plain]
+	\frametitle{Application}
+	\framesubtitle{Puissance et temps de décharge}
+
+	   
+	   \begin{figure}
+	       \centering
+	       \includegraphics[scale = 0.33]{(5) Déchargementpuissance.png}
+	       \caption{Évaluation des ordres de grandeurs}
+	   \end{figure}
+	\end{frame}
+	
+	\begin{frame}[plain]
+	\frametitle{Application à une échelle réelle}
+	\framesubtitle{Puissance et temps de décharge}
+	    \begin{figure}
+	        \centering
+	        \includegraphics[scale = 0.145]{Conclu2.png}
+	         \caption{Comparaison avec des technologies existantes}
+	    \end{figure}
+	\end{frame}
+	
+	\subsection{Conclusion}
+	\begin{frame}
+        \frametitle{Application à une échelle réelle}
+        \framesubtitle{Conclusion}
+            \begin{itemize}
+                \item Puissance de 10 MW sur quelques minutes pour une centaine de mètre de profondeur
+                \item Rendement de l'ordre de 40\%
+                \item Utilisation proche des côtes, voire en pleine mer
+            \end{itemize}
+            \begin{figure}
+            \centering
+            \includegraphics[scale = 0.27]{floating-city-1024x598 - Copie.jpg}
+            
+            \end{figure}
+	\end{frame}
+	\begin{frame}
+        \frametitle{Application à une échelle réelle}
+        \framesubtitle{Conclusion}
+            \begin{itemize}
+                \item Puissance de 10 MW sur quelques minutes pour une centaine de mètre de profondeur
+                \item Rendement de l'ordre de 40\%
+                \item Utilisation proche des côtes, voire en pleine mer
+            \end{itemize}
+            \begin{figure}
+            \centering
+            \includegraphics[scale = 0.15]{floating-city-1024x598.jpg}
+            \caption{Une ville flottante}
+            \end{figure}
+	\end{frame}
+	
+
+\end{document}
